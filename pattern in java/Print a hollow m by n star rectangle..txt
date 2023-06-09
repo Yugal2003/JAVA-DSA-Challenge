@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        
+        for(int row=1;row<=n;row++){
+            if(row == 1 || row==n){
+                for(int cst=1;cst<=m;cst++){
+                    System.out.print("*");
+                    }
+            }
+            else{
+                System.out.print("*");
+                for(int csp=1;csp<=m-2;csp++){
+                   System.out.print(" "); 
+                }
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    
+        
+    }
+}
