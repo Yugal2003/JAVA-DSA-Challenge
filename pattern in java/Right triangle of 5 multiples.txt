@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int star=1;
+        
+        for(int row=1;row<=n;row++){
+            int val = 5;
+            for(int i=1;i<=star;i++){
+                System.out.print(val+"\t");
+                val+=5;
+            }
+            System.out.println();
+            star++;
+        }
+    }
+}
