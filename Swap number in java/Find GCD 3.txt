@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static int findgcd(int x,int y){
+        int min = Math.min(x,y);
+        for(int i=min;min>=1;i--){
+            if(x%i==0 && y%i==0){
+                return i;
+            }
+        }
+        return 1;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int i=0;i<t;i++){
+            int x = sc.nextInt();
+            int y =sc.nextInt();
+            
+            System.out.println(findgcd(x,y));
+        }
+    }
+}
