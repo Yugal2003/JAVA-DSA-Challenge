@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean arm(int n){
+        int sum=0;
+        for(int i2=n;i2>0;i2/=10){
+            int d =i2%10;
+            sum+=d*d*d;
+        }
+        if(sum==n) return true;
+        else return false;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int i=0;i<t;i++){
+            int n = sc.nextInt();
+            
+            boolean ans = arm(n);
+            System.out.println(ans);
+        }
+    }
+}
