@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Integer arr[] = new Integer[n];
+        for(int i=0;i<n;i++){
+        arr[i] = sc.nextInt();
+        }
+        int k = sc.nextInt();
+        
+        int diff = Integer.MAX_VALUE;
+        
+        Arrays.sort(arr);
+        
+        for(int i=0;i<=n-k;i++){
+            int min = arr[i];
+            int max = arr[i+k-1];
+            diff = Math.min(diff,max-min);
+        }
+        System.out.println(diff);
+    }
+}
