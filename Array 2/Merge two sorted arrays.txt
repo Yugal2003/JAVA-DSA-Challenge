@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Integer  arr[] = new Integer[n]; 
+        for(int i=0;i<n;i++){
+        arr[i] = sc.nextInt();
+        }
+        
+        int m = sc.nextInt();
+        Integer  arr1[] = new Integer[m];  
+        for(int i=0;i<m;i++){
+        arr1[i] = sc.nextInt();
+        }
+        
+        int arr2[] = new int[n+m];
+        int i=0;
+        for(int j=0;j<arr.length;j++){
+            arr2[i]=arr[j];
+            i++;
+        }
+        for(int j=0;j<arr1.length;j++){
+            arr2[i]=arr1[j];
+            i++;
+        }
+        Arrays.sort(arr2);
+        for(int j=0;j<arr2.length;j++){
+            System.out.print(arr2[j]+" ");
+        }
+    }
+}
