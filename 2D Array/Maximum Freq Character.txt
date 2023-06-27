@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        
+        // freq arr
+        int [] freq = new int[26];
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            freq[ch-'a']++;
+        }
+        
+        //find max freq
+        char ans = 'a';
+        int maxfreq=-1;
+        
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            if(freq[ch-'a']>maxfreq){
+                maxfreq = freq[ch-'a'];
+                ans = ch;
+            }
+        }
+        System.out.print(ans);
+    }
+}
