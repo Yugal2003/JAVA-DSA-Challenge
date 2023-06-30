@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static boolean goodString(String s){
+        //freq arr
+        int[] freq = new int[26];
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            freq[ch-'a']++;
+        }
+        
+        //compare freq
+       int initfreq = freq[s.charAt(0) - 'a']; // freq of first char of string
+
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            int currfreq = freq[ch-'a'];
+            
+            if(currfreq != 0 && currfreq != initfreq){
+                return false;
+            }
+        }
+        return true;
+  }   
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s= sc.next();
+        boolean ans = goodString(s);
+        System.out.println(ans);
+    }
+}
