@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m =  sc.nextInt();
+        int n =  sc.nextInt();
+        
+        int arr[][] = new int[m][n];
+        
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        
+        int minr=0;
+        int maxr=m-1;
+        int minc=0;
+        int maxc=n-1;
+        
+        int t = m*n;  // total   && row = m and col = n
+        int c = 0;   // count hear
+        
+        while(c < t){  // count < total ->  0 to 11 < 12 
+            
+            //1. minr count -> minc to maxc 
+            for(int j=minc;j<=maxc && c < t;j++){
+                System.out.print(arr[minr][j]+"   ");
+                c++;
+            }
+            minr++;
+            
+            //2. maxc  count -> minr to maxr
+            for(int i=minr ;i<=maxr && c < t;i++){
+                System.out.print(arr[i][maxc]+"   ");
+                c++;
+            }
+            maxc--;
+            
+            //3. maxr count-> maxc to minc 
+            for(int j=maxc;j>=minc && c < t;j--){
+                System.out.print(arr[maxr][j]+"   ");
+                c++;
+            }
+            maxr--;
+            
+            //4. minc count-> maxr to minr
+            for(int i = maxr; i >= minr && c < t; i--){
+                System.out.print(arr[i][minc] + "   ");
+                c++;
+            }
+            minc++;
+        }
+    }
+}
