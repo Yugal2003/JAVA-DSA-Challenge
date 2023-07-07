@@ -1,0 +1,50 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void print2d(int arr[][]){
+        for(int d[] : arr){
+            for(int ele : d){
+                System.out.print(ele+" ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void reverse(int d[],int i,int j){
+        while(i<j){
+            int temp = d[i];
+            d[i] = d[j];
+            d[j] = temp;
+            i++;
+            j--;
+        }
+    }
+    
+    public static void rotate(int d[],int k){
+        k = k % d.length;
+        
+        reverse(d, 0, k-1);
+        reverse(d, k, d.length-1);
+        reverse(d, 0, d.length-1);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[][] = new int[n][n];
+        
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        
+        int k = sc.nextInt();
+        
+        for(int d[] : arr){
+            rotate(d,k);
+        }
+        
+        print2d(arr);
+    }
+}
