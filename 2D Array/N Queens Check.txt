@@ -1,0 +1,70 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean check(int [][] arr, int i, int j){
+        //dir 1 : i , j-1
+        for(int r = i, c = j-1; c >= 0 ; c--  ){
+            if(arr[r][c] == 1){
+                return false;
+            }
+        }
+        
+         //dir 2 : i-1 , j
+        for(int r = i-1, c = j; r >= 0 ; r--  ){
+            if(arr[r][c] == 1){
+                return false;
+            }
+        }
+        
+         //dir 3 : i-1 , j-1
+        for(int r = i-1, c = j-1 ; r >= 0 && c >= 0 ; r-- , c--  ){
+            if(arr[r][c] == 1){
+                return false;
+            }
+        }
+        
+        // dir 4 : i-1 , j+1
+        for(int r = i-1, c = j+1 ; r >= 0 && c < arr.length ; r-- , c++  ){
+            if(arr[r][c] == 1){
+                return false;
+            }
+        }
+        
+        
+        return true;
+    }
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int arr[][] = new int[n][n];
+        
+        //input
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        
+        //logic
+        boolean ans = true;     //by default we are assuming all are safe
+        
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(arr[i][j] == 1){       //Queen is present here
+                    ans = check(arr,i,j);
+                    
+                    if(ans == false){
+                        System.out.println("Danger");
+                        return;
+                    }
+                }
+            }
+        }
+        
+        
+        System.out.println("N Queens");
+        
+    }
+}
