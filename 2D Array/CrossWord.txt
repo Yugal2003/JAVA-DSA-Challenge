@@ -1,0 +1,124 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean dirOne(char [][] A, String word, int i, int j){
+        //1. horizontal from L to R 
+        for(int k = 0; k < word.length(); k++){
+            if(j >= A.length){
+               return false; 
+            }
+            else if(word.charAt(k) != A[i][j]){
+                return false;
+            }
+            j++;
+        }
+        return true;
+        
+    }
+    
+     public static boolean dirTwo(char [][] A, String word, int i, int j){
+        //1. horizontal from top to bottom
+        for(int k = 0; k < word.length(); k++){
+            if(i >= A.length){
+               return false; 
+            }
+            else if(word.charAt(k) != A[i][j]){
+                return false;
+            }
+            i++;
+        }
+        return true;
+        
+    }
+    
+    public static boolean dirThree(char [][] A, String word, int i, int j){
+        //1. horizontal from NW to SE
+        for(int k = 0; k < word.length(); k++){
+            if(i >= A.length || j >= A.length){
+               return false; 
+            }
+            else if(word.charAt(k) != A[i][j]){
+                return false;
+            }
+            i++;
+            j++;
+        }
+        return true;
+        
+    }
+    
+    public static boolean dirFour(char [][] A, String word, int i, int j){
+        //1. horizontal from NE to SW
+        for(int k = 0; k < word.length(); k++){
+            if(i >= A.length || j < 0){
+               return false; 
+            }
+            else if(word.charAt(k) != A[i][j]){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+        
+    }
+    
+    
+    
+    
+    public static boolean searchIn4Dir(char [][] A, String word, int i, int j){
+        if(dirOne(A, word, i,j) || dirTwo(A, word, i,j) || dirThree(A, word, i,j) || dirFour(A, word, i,j)){
+            return true;
+        }
+        
+        return false;
+        
+//         boolean a1 = dirOne(A, word, i,j);
+//         boolean a2 = dirTwo(A, word, i,j);
+//         boolean a3 = dirThree(A, word, i,j);
+//         boolean a4 = dirFour(A, word, i,j);
+        
+//         if(a1 || a2 || a3 || a4){
+//             return true;
+//         }
+        
+//         return false;
+    }
+    
+    
+    public static boolean crossword(char [][] A, String word){
+        int n = A.length;
+        char firstCh = word.charAt(0);  //first character of word to be searched
+        
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(A[i][j] == firstCh){
+                    boolean dirAns = searchIn4Dir(A, word, i, j);
+                    if(dirAns){
+                        return true;
+                    }
+                }
+            }
+        }
+        
+        return false;
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        
+        char [][] A = new char[n][n];
+        
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                A[i][j] = scn.next().charAt(0);
+            }
+        }
+        
+        String word = scn.next();   //GREEN
+        
+        boolean ans = crossword(A, word);
+        System.out.println(ans);
+    }
+}
