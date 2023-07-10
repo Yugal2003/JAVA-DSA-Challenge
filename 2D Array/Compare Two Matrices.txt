@@ -1,0 +1,50 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean compare(int arr[][],int m,int n,int ar[][],int p,int q){
+        if(m != p || n!=q){
+            return false;
+        }
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(arr[i][j] != ar[i][j]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        
+        int arr[][] = new int[m][n];
+        
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        
+        int p = sc.nextInt();
+        int q = sc.nextInt();
+        
+        int ar[][] = new int[p][q];
+        
+        for(int i=0;i<p;i++){
+            for(int j=0;j<q;j++){
+                ar[i][j] = sc.nextInt();
+            }
+        }
+        
+        boolean ans = compare(arr,m,n,ar,p,q);
+        if(ans){
+            System.out.println("Same");
+        }
+        else{
+            System.out.println("Not Same");
+        }
+    }
+}
