@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static int countPalindrome(int arr[][],int N,int M)
+    {
+        int count = 0;
+        for (int i = 0; i < N; i++) {
+            
+            int a = 0; 
+            int b = M - 1;
+            
+            boolean ans = true;
+            while (a<b) {
+                if (arr[i][a] != arr[i][b]) {
+                    ans = false;
+                    break;
+                }
+                a++;
+                b--;
+            }
+            if (ans == true){
+             count++;   
+            }
+        }
+        return count;
+    }
+ 
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int M = sc.nextInt();
+        int N = sc.nextInt();
+        
+        int arr[][] = new int[M][N];
+        
+        for(int i=0;i<M;i++){
+            for(int j=0;j<N;j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println(countPalindrome(arr,M,N));
+   }
+}
