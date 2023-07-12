@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean isequal(String str,String str2){
+        if(str.length() != str2.length()){
+           return false;
+        }
+        for(int i=0;i<str.length();i++){
+            if(str.charAt(i) != str2.charAt(i)){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // String str = sc.nextLine();
+        // String str2 = sc.nextLine();
+        
+       // System.out.println(str.equals(str2));   
+        
+        // OR
+        
+        String str = sc.nextLine();
+        String str2 = sc.nextLine();
+        
+        boolean ans = isequal(str,str2);
+        System.out.println(ans);
+    }
+}
