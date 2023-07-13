@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean ans(String str,String str2){
+        String a = "";
+        for(int i=0;i<str.length();i++){
+           char c= str.charAt(i);
+            if(Character.isUpperCase(c)){
+                a += (char) (c+32);
+            }
+            else{
+                a += (char) (c-32);
+            }
+        }
+        if(a.equals(str2)){
+            return true;
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        String str2 = sc.next();
+        if ( str.length() != str2.length()) {
+            System.out.println(false);
+            return;
+        }
+        System.out.println(ans(str,str2));
+    }
+}
