@@ -1,0 +1,18 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        
+        char ch = sc.nextLine().charAt(0);
+        char ch2 = sc.nextLine().charAt(0);
+        
+        int i = str.indexOf(ch);
+        int i2 = str.indexOf(ch2);
+         
+        System.out.println(Math.abs(i-i2) - 1);
+    }
+}
