@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static String ispalindrome(String str){
+        String t = "";
+        
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            
+            if((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9')){
+                // convert into smallcase
+                ch = (char) (ch - 'A'+'a');
+            }
+            t +=ch;
+        }
+    
+    
+    // check if t string is palindrome or not
+    int i=0;
+    int j = t.length()-1;
+    
+    while(i < j){
+        if(t.charAt(i) != t.charAt(j)){
+            return "false";
+        }
+        i++;
+        j--;
+    }
+        return "true";
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        
+   String ans = ispalindrome(str);
+        System.out.println(ans);
+    }
+}
