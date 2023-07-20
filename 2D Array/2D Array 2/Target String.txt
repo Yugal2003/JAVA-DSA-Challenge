@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        String target = sc.next();
+        String newStr=str+str;
+    // str="abcde";
+    // str1="cdeab";
+    //  bcdea, cdeab, deabc, eabcd, abcde  -> 5 possible rotations 
+   // strNew=str+str; -> abcdeabcde 
+        if(newStr.contains(target)){
+            System.out.print("True");
+        }
+        else{
+            System.out.print("False");
+        }
+    }
+}
