@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int ans =0;
+        
+        for(int st = 0;st<str.length();st++){
+            for(int end=st;end<str.length();end++){
+                
+                String currstr="";
+                for(int i=st;i<=end;i++){
+                    currstr+=str.charAt(i);
+                }
+                
+                ans+= Integer.parseInt(currstr);
+            }
+        }
+        System.out.println(ans);
+    }
+}
