@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int count =0;
+        String maxstring="";
+        
+        for(int st = 0;st<str.length();st++){
+            for(int end=st;end<str.length();end++){
+                
+                String currstr="";
+                for(int i=st;i<=end;i++){
+                    currstr+=str.charAt(i);
+                }
+                if(currstr.length() > 1 && currstr.charAt(0) == 'A' && currstr.charAt(currstr.length()-1) == 'A'){
+                    count++;
+                    if(currstr.length() > maxstring.length()){
+                        maxstring=currstr;
+                    }
+                }
+            }
+        }
+        if(count == 0){
+            System.out.println("-1");
+        }
+        else{
+            System.out.println(count);
+            System.out.println(maxstring.length());
+            System.out.println(maxstring);
+        }
+    }
+}
