@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int previous=0;
+        int count=1;
+        int ans =0;
+        
+        for(int i=1;i<str.length();i++){
+            if(str.charAt(i) == str.charAt(i-1)){
+                count++;
+            }
+            else{
+                ans += Math.min(previous,count);
+                previous = count;
+                count=1;
+            }
+        }
+        ans += Math.min(previous,count);
+        System.out.println(ans);
+    }
+}
